@@ -6,10 +6,10 @@ function preload(){
 }
 
 function setup() {
-	createCanvas(800, 500);
+	createCanvas(screen.width, 500);
   noLoop();
 }
 
 function draw() {
-  print(data);
+  background("#F11D1A");
 }
