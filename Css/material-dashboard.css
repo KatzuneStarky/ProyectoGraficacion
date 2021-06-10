@@ -15566,10 +15566,11 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 .main-panel {
   position: relative;
   float: right;
+  height: 100%;
   width: calc(100% - 260px);
   transition: 0.33s, cubic-bezier(0.685, 0.0473, 0.346, 1);
-  background-color: black;
-  color: white;
+  background-color: rgb(116, 116, 116);
+  color: black;
 }
 
 .main-panel>.content {
