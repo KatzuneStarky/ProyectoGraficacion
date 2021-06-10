@@ -36,4 +36,5 @@ function draw() {
   textSize(20);
   text("ACTIVOS ESTIMADOS", 370, 225);
   image(enfer, 780, 225, 50,50);
+  text("hola");
 }
