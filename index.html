@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<title>Covid-19</title>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	  <!-- Required meta tags -->
 	  <meta charset="utf-8">
 	  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
@@ -20,12 +21,23 @@
 	<script src="libraries/p5.dom.js"></script>
 	<script src="libraries/p5.sound.js"></script>
 	<script src="sketch.js"></script>
-	<script src="sketch1.js"></script>
-	<link rel="stylesheet" href="Css/Styles.css">
+	<!--<script src="sketch1.js"></script>-->
+	<link rel="stylesheet" href="Css/style.css">
+	<script>
+		$.getJSON('https://api.apify.com/v2/key-value-stores/vpfkeiYLXPIDIea2T/records/LATEST?disableRedirect=true', function (data){
+			var activos = `${data.suspected}`;
+			var infectados = `${data.infected}`;
+			var defunciones = `${data.deceased}`;
+			$(".pE").html(activos);
+			$(".pos").html(infectados);
+			$(".ded").html(defunciones);
+		});
+
+	</script>
 </head>
 <body>	
 	<div class="wrapper ">
-		<div class="sidebar" data-color="azure" data-background-color="black">
+		<div class="sidebar" data-color="danger" data-background-color="black">
 		  <!--
 		  Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 	
@@ -76,6 +88,27 @@
 		  <!-- End Navbar -->
 		  <div class="content">
 			<div class="container-fluid">
+				<div class="card">
+					<div class="content">
+						<h3>POSITIVOS ESTIMADOS</h3>
+						<p class="pE"></p>
+					</div>
+					<img src="Img/positivo.png" alt="">
+				</div>
+				<div class="card1">
+					<div class="content">
+						<h3>DEFUNCIONES ESTIMADAS</h3>
+						<p class="ded"></p>
+					</div>
+					<img src="Img/lazoNegro.png" alt="">
+				</div>
+				<div class="card2">
+					<div class="content">
+						<h3>ACTIVOS ESTIMADOS</h3>
+						<p class="pos"></p>
+					</div>
+					<img src="Img/patient.png" alt="">
+				</div>
 			</div>
 		  </div>
 		</div>

@@ -58,7 +58,7 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fafafa;
+  background-color: #ffffff;
 }
 
 [tabindex="-1"]:focus {
@@ -479,7 +479,7 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fafafa;
+  background-color: #ffffff;
 }
 
 [tabindex="-1"]:focus {
@@ -4366,7 +4366,7 @@ tbody.collapse.show {
   padding-top: 0.3125rem;
   padding-bottom: 0.3125rem;
   margin-right: 1rem;
-  font-size: 1.25rem;
+  font-size: 2rem;
   line-height: inherit;
   white-space: nowrap;
 }
@@ -4746,12 +4746,12 @@ tbody.collapse.show {
 }
 
 .navbar-dark .navbar-brand {
-  color: #ffffff;
+  color: #000000;
 }
 
 .navbar-dark .navbar-brand:hover,
 .navbar-dark .navbar-brand:focus {
-  color: #ffffff;
+  color: #000000;
 }
 
 .navbar-dark .navbar-nav .nav-link {
@@ -13835,12 +13835,12 @@ fieldset[disabled] .form-group .form-control {
 
 .navbar .navbar-brand {
   position: relative;
-  color: inherit;
+  color: black;
   height: 50px;
-  font-size: 1.125rem;
-  line-height: 30px;
+  font-size: 2rem;
+  line-height: 50px;
   padding: 0.625rem 0;
-  font-weight: 300;
+  font-weight: 500;
   margin-left: 1rem;
 }
 
@@ -15569,7 +15569,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   height: 100%;
   width: calc(100% - 260px);
   transition: 0.33s, cubic-bezier(0.685, 0.0473, 0.346, 1);
-  background-color: rgb(116, 116, 116);
+  background-color: rgba(255, 255, 255, 0);
   color: black;
 }
 
@@ -18921,7 +18921,7 @@ Copyright (c) 2015 Daniel Eden
 
   html,
   body {
-    overflow-x: hidden;
+
   }
 
   .nav-open .menu-on-left .main-panel,
