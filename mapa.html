@@ -4,20 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="Img/viruses-solid.ico">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="Css/style.css">
     <link rel="stylesheet" href="Css/loader.css">
+    <script src="js/all.js"></script>
+    <link rel="stylesheet" href="Css/alert.css">
    
     <script src="sketch.js"></script>
     <title>Mapa</title>
 </head>
 <body>
-  <div class="alert">
+  <div class="alert show">
     <span class="fas fa-exclamation-circle"></span>
+    <span class="msg">Da click en el estado que deseas saber su situacion</span>
+    <div class="close-btn">
+      <span class="fas fa-times"></span>
+    </div>
   </div>
+  <script>
+  $(".close-btn").click(function(){
+     $(".alert").removeClass("show");
+     $(".alert").addClass("hide");
+  });    
+  </script>
 <style>
 .mapboxgl-popup {
   font: 'Helvetica Neue', Arial, Helvetica, sans-serif;
@@ -79,8 +92,8 @@
   </ul>		
 </div>
 <div class="header">
-  <i class='bx bxs-dashboard' ></i>
-  <p class="titulo">Dashboard</p>
+  <i class='bx bxs-map'></i>
+  <p class="titulo">Mapa</p>
 </div>
 <div class="home_content">
   <div class="titulo1">
@@ -5631,6 +5644,7 @@ map.getCanvas().style.cursor = '';
      section.style.opacity = "0";
      section.style.zIndex = "-1000";
       });
+      
   }, 2000);
   </script>
 </body>
