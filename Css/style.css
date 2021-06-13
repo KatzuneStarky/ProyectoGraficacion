@@ -386,6 +386,31 @@ body{
     display: inline-block;
 }
 
+.entidad{
+    color: darkgoldenrod;
+    font-size: 22px;
+    line-height: 20px;
+    width: 1000px;
+}
+
+.positivo{
+    color: darkgreen;
+    font-size: 15px;
+    line-height: 50px;
+}
+
+.fallecidos{
+    color: darkred;
+    font-size: 15px;
+    line-height: 50px;
+}
+
+#map{
+    margin-top: 20px;
+    border: 5px solid #000;
+    margin-bottom: 20px;
+}
+
 .box .tarjeta p{
     color: #000;
     font-size: 28px;

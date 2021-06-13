@@ -10,6 +10,7 @@
 	<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 	<script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
 	<link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="Css/loader.css">
 	<script>
 		$.getJSON('https://api.apify.com/v2/key-value-stores/vpfkeiYLXPIDIea2T/records/LATEST?disableRedirect=true', function (data){
 			var activos = `${data.suspected}`;
@@ -30,6 +31,18 @@
 	</script>
 </head>
 <body>
+    <section class="wrapper dark" id="wrapper">
+		<div class="spinner">
+		  <i></i>
+		  <i></i>
+		  <i></i>
+		  <i></i>
+		  <i></i>
+		  <i></i>
+		  <i></i>
+		</div>
+        <p class="cargando">Cargando...</p>
+	  </section>
     <div class="sidebar">
 		<div class="logo_content">
 			<div class="logo">
@@ -56,7 +69,7 @@
 			</li>
 
 			<li>
-				<a href="">
+				<a href="mapa.html">
 					<i class='bx bxs-map'></i>
 					<span class="link_name">Mapa</span>
 				</a>
@@ -205,5 +218,14 @@
 			content.classList.toggle("active");
 		}
 	</script>
+    	<script>
+            setTimeout(function(){
+                $( document ).ready(function() {
+               var section = document.getElementById("wrapper");
+               section.style.opacity = "0";
+               section.style.zIndex = "-1000";
+            });
+        }, 2000);
+          </script>
 </body>
 </html>
