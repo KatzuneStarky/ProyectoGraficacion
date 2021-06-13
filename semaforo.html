@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid-19 - Semaforo Epidemiologico</title>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<link rel="stylesheet" href="Css/style.css">
+	<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+	<script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+	<link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+	<script>
+		$.getJSON('https://api.apify.com/v2/key-value-stores/vpfkeiYLXPIDIea2T/records/LATEST?disableRedirect=true', function (data){
+			var activos = `${data.suspected}`;
+			var infectados = `${data.infected}`;
+			var defunciones = `${data.deceased}`;
+			var negativos = `${data.negative}`;
+			var sus = `${data.suspected}`;
+			$(".pE").html(activos);
+			$(".act").html(activos);
+			$(".pos").html(infectados);
+			$(".inf").html(infectados);
+			$(".ded").html(defunciones);
+			$(".def").html(defunciones);
+			$(".neg").html(negativos);
+			$(".sus").html(sus);
+		});
+
+	</script>
+</head>
+<body>
+    <div class="sidebar">
+		<div class="logo_content">
+			<div class="logo">
+				<i class='bx bxs-virus'></i>
+				<div class="logoName">Covid-19</div>
+			</div>
+			<i class='bx bx-menu' id="button"></i>
+		</div>
+		<ul class="nav_list">
+			<li>
+				<a href="index.html">
+					<i class='bx bxs-dashboard' ></i>
+					<span class="link_name">Dashboard</span>
+				</a>
+				<span class="tooltip">Dashboard</span>
+			</li>
+
+			<li>
+				<a href="semaforo.html">
+					<i class='bx bxs-traffic'></i>
+					<span class="link_name">Semaforo</span>
+				</a>
+				<span class="tooltip">Semaforo</span>
+			</li>
+
+			<li>
+				<a href="">
+					<i class='bx bxs-map'></i>
+					<span class="link_name">Mapa</span>
+				</a>
+				<span class="tooltip">Mapa</span>
+			</li>
+
+			<li>
+				<a href="">
+					<i class='bx bx-bar-chart-alt-2' ></i>
+					<span class="link_name">Graficas</span>
+				</a>
+				<span class="tooltip">Graficas</span>
+			</li>
+		</ul>		
+	</div>
+    <div class="header">
+		<i class='bx bxs-dashboard' ></i>
+		<p class="titulo">Dashboard</p>
+	</div>
+    <div class="home_content">
+        <div class="titulo1">
+            Mapa Epidemiologico
+        </div>
+        <svg class="leaflet-zoom-animated" width="1200" height="800" viewBox="-50 -42 596 500" style="margin-top: -210px;">
+            <path class="enabled" id="Aguascalientes: Verde" stroke="#000000" stroke-opacity="0.5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#02A247" fill-opacity="0.75" fill-rule="evenodd" d="M250 232L246 237L239 235L240 231L243 228L247 228L249 231z">
+            </path>
+            <path class="enabled" id="Baja California: Amarillo" stroke="#000000" stroke-opacity="0.5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#FFC60F" fill-opacity="0.75" fill-rule="evenodd" d="M98 152L98 156L98 152zM117 137L119 138L119 140L121 140L122 143L117 139L117 137zM63 142L63 145L62 142zM103 107L104 108L103 107zM103 98L101 98L100 101L103 107L102 117L104 119L105 130L108 133L107 134L109 134L116 140L117 145L122 148L126 156L110 157L110 148L101 139L93 134L93 132L91 131L91 127L89 125L89 121L82 111L82 107L76 98L104 95L103 97z"></path>
+
+            <path class="enabled" id="Baja California Sur: Naranja" stroke="#000000" stroke-opacity="0.5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#FF7000" fill-opacity="0.75" fill-rule="evenodd" d="M160 206L159 204zM153 201L154 202L153 201zM149 194L151 195L151 197L149 195zM149 186L148 187zM145 182L144 184L144 182zM110 157L126 157L126 159L135 169L136 172L137 171L140 174L142 179L142 185L146 189L150 198L149 201L151 204L153 205L155 203L158 207L160 207L159 208L161 212L164 214L164 217L161 220L158 222L153 212L151 212L146 206L135 202L133 198L131 198L134 186L130 179L129 180L119 172L115 173L100 160L106 160L109 158z">
+            </path>                
+
+            <path class="enabled" id="Campeche: Amarillo" stroke="#000000" stroke-opacity="0.5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#FFC60F" fill-opacity="0.75" fill-rule="evenodd" d="M393 262L395 264L395 283L374 283L374 281L368 279L367 282L360 279L360 275L357 274L362 272L365 273L377 264L377 260L380 257L379 252L381 246L381 250L384 252L385 251L391 260z"></path>
+            <path class="enabled" id="Coahuila: Verde" stroke="#000000" stroke-opacity="0.5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#02A247" fill-opacity="0.75" fill-rule="evenodd" d="M273 160L271 162L269 160L267 161L266 165L262 167L262 169L263 168L265 172L264 174L263 175L263 173L257 178L262 183L261 185L269 192L262 193L262 200L260 201L256 197L253 198L248 194L241 194L239 198L234 196L234 194L231 191L234 179L233 175L227 171L229 169L226 158L232 146L239 141L238 139L241 134L249 133L256 135L263 142L268 153L273 159z"></path>
+            
+            <path class="enabled" id="Colima: Amarillo" stroke="#000000" stroke-opacity="0.5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#FFC60F" fill-opacity="0.75" fill-rule="evenodd" d="M146 271L147 272L146 271zM232 269L229 272L221 267L218 267L225 263L229 263L232 265L232 268z"></path>
+            <path class="enabled" id="Chiapas: Verde" stroke="#000000" stroke-opacity="0.5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#02A247" fill-opacity="0.75" fill-rule="evenodd" d="M369 290L377 296L378 299L381 300L380 304L365 304L360 313L362 315L360 321L356 319L345 307L339 305L338 303L341 291L347 285L348 281L350 282L349 283L351 283L350 284L354 289L362 282L364 282L366 287L369 289z"></path>
+            
+            <path class="enabled" id="Chihuahua: Amarillo" stroke="#000000" stroke-opacity="0.5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#FFC60F" fill-opacity="0.75" fill-rule="evenodd" d="M234 144L226 158L229 172L222 172L219 178L217 176L208 176L206 173L205 174L202 172L198 180L197 186L196 188L194 188L187 181L183 180L180 177L180 173L177 169L173 169L173 164L170 158L168 157L168 153L169 154L175 152L174 147L172 146L172 138L174 134L173 125L172 123L170 123L170 119L172 117L170 115L172 113L178 113L178 107L197 107L210 120L216 124L218 132L221 137L232 143z"></path>
+            <path class="enabled" id="Ciudad de Mexico: Verde" stroke="#000000" stroke-opacity="0.5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#02A247" fill-opacity="0.75" fill-rule="evenodd" d="M283 268L279 267L278 265L281 262L283 264L283 267z"></path>
+            
+            <path class="enabled" id="Durango: Verde" stroke="#000000" stroke-opacity="0.5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#02A247" fill-opacity="0.75" fill-rule="evenodd" d="M229 173L233 175L234 179L232 188L233 190L231 191L237 198L239 198L241 194L243 201L240 203L232 202L230 206L227 208L228 212L224 216L225 223L223 223L223 225L220 228L216 224L215 226L214 225L214 220L211 221L209 218L207 218L206 213L204 213L202 204L198 204L196 202L191 196L189 190L192 187L196 188L202 173L206 173L208 176L211 177L217 176L219 178L222 172L227 173z"></path>
+            
+            <path class="enabled" id="Guanajuato: Verde" stroke="#000000" stroke-opacity="0.5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#02A247" fill-opacity="0.75" fill-rule="evenodd" d="M274 238L275 241L264 248L268 254L266 257L260 258L260 256L256 256L255 253L250 254L248 252L249 250L247 247L250 245L251 241L253 241L252 240L254 235L260 235L264 238L268 236L273 239z"></path>
+            
+            <path class="enabled" id="Guerrero: Verde" stroke="#000000" stroke-opacity="0.5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#02A247" fill-opacity="0.75" fill-rule="evenodd" d="M277 272L287 282L289 282L288 285L290 285L290 289L293 292L293 296L291 296L292 298L290 298L288 301L285 298L274 296L270 293L261 290L246 280L250 277L252 273L254 275L259 274L265 276L262 270L266 271L267 276L275 271L277 272z"></path>
+            
+            <path class="enabled" id="Hidalgo: Verde" stroke="#000000" stroke-opacity="0.5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#02A247" fill-opacity="0.75" fill-rule="evenodd" d="M294 250L293 253L291 253L293 255L291 257L292 260L288 261L286 261L287 260L285 258L283 259L282 256L279 259L277 255L274 255L273 253L273 250L277 249L276 248L279 243L283 241L285 243L287 242L287 240L289 240L288 241L292 244L287 251L289 253L293 249L294 250z"></path>
+            
+            <path class="enabled" id="Jalisco: Verde" stroke="#000000" stroke-opacity="0.5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#02A247" fill-opacity="0.75" fill-rule="evenodd" d="M240 236L241 235L245 237L251 232L254 235L252 240L253 241L251 241L250 245L247 247L249 249L248 251L237 255L237 257L240 257L241 263L242 262L241 266L239 266L235 270L231 267L230 263L226 263L219 267L216 266L217 265L213 263L206 252L210 251L212 247L214 245L215 246L216 244L223 249L223 242L227 242L229 240L226 235L224 235L221 231L224 226L226 228L225 223L229 223L227 226L227 230L228 225L231 227L229 231L234 229L234 227L236 229L236 231L229 238L231 240L229 241L231 243L236 244L236 242L238 242L241 239L240 236z"></path>
+            
+            <path class="enabled" id="Estado de Mexico: Verde" stroke="#000000" stroke-opacity="0.5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#02A247" fill-opacity="0.75" fill-rule="evenodd" d="M273 253L274 255L277 255L278 259L281 256L283 256L283 258L287 260L287 269L285 270L283 268L283 264L281 262L278 265L279 268L277 272L275 271L268 276L265 270L269 263L268 261L270 259L270 256L272 256L272 253z"></path>
+            
+            <path class="enabled" id="Michoacan: Verde" stroke="#000000" stroke-opacity="0.5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#02A247" fill-opacity="0.75" fill-rule="evenodd" d="M267 253L269 254L270 260L268 260L269 264L267 268L263 271L262 270L263 275L265 276L259 274L254 275L252 273L250 274L249 278L247 278L246 282L231 277L231 275L229 274L229 272L232 269L235 269L241 266L242 264L242 262L240 262L240 258L237 256L238 255L247 252L250 254L255 253L256 256L260 256L260 258L262 258L266 257L268 254z"></path>
+            
+            <path class="enabled" id="Morelos: Verde" stroke="#000000" stroke-opacity="0.5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#02A247" fill-opacity="0.75" fill-rule="evenodd" d="M283 268L285 270L286 269L286 275L282 276L277 273L279 267L282 268z"></path><path class="leaflet-interactive" stroke="#000000" stroke-opacity="0.5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#02A247" fill-opacity="0.75" fill-rule="evenodd" d="M198 238L199 239L197 239zM196 236L196 237zM222 227L221 231L229 239L226 242L223 242L223 248L221 248L217 244L213 246L211 249L209 246L212 242L212 238L208 235L206 226L209 225L208 223L210 219L211 221L213 220L215 223L214 226L217 224L220 228L221 227z"></path>
+            
+            <path class="enabled" id="Nuevo Leon: Amarillo" stroke="#000000" stroke-opacity="0.5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#FFC60F" fill-opacity="0.75" fill-rule="evenodd" d="M273 160L274 161L272 163L274 164L274 171L276 172L275 174L278 175L278 179L280 179L284 183L287 182L287 189L289 189L279 198L277 198L277 200L274 201L276 203L275 205L277 208L276 210L273 210L272 215L270 215L270 217L269 216L267 218L266 210L262 200L262 193L268 192L261 185L262 184L257 178L263 173L263 175L265 173L265 169L262 169L262 167L266 165L267 161L269 160L271 162z"></path>
+            
+            <path class="enabled" id="Oaxaca: Verde" stroke="#000000" stroke-opacity="0.5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#02A247" fill-opacity="0.75" fill-rule="evenodd" d="M341 291L338 299L339 304L327 302L321 306L317 306L311 309L303 305L296 305L288 300L290 299L289 298L291 298L291 296L293 296L293 292L291 291L292 290L290 289L291 288L290 285L288 285L288 283L292 281L296 282L297 281L295 279L297 277L299 280L307 278L309 273L312 274L314 279L318 279L319 286L323 286L325 284L329 290L335 291z"></path>
+            
+            <path class="enabled" id="Puebla: Verde" stroke="#000000" stroke-opacity="0.5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#02A247" fill-opacity="0.75" fill-rule="evenodd" d="M308 276L305 279L301 280L299 280L297 277L295 279L297 281L296 282L287 282L282 277L286 273L286 265L288 263L292 267L295 267L295 265L298 264L291 260L293 255L291 253L293 253L295 247L297 247L299 251L297 251L297 254L299 256L303 255L302 260L300 262L303 265L305 265L302 268L303 270L301 271L301 273L305 275L306 274L308 276z"></path>
+            
+            <path class="enabled" id="Queretaro: Verde" stroke="#000000" stroke-opacity="0.5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#02A247" fill-opacity="0.75" fill-rule="evenodd" d="M282 241L282 243L278 244L276 248L277 249L273 250L272 256L270 256L266 249L264 248L270 245L271 242L273 243L275 241L274 238L278 239L281 236L281 241z"></path>
+            
+            <path class="enabled" id="Quintana Roo: Naranja" stroke="#000000" stroke-opacity="0.5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#FF7000" fill-opacity="0.75" fill-rule="evenodd" d="M395 281L395 264L393 262L395 260L396 261L396 259L402 254L411 249L413 245L413 239L418 239L418 237L422 243L421 246L415 252L414 258L411 262L414 263L412 266L413 265L413 268L409 279L407 279L407 276L402 275L398 282L395 281zM419 251L422 250L419 252z"></path>
+            
+            <path class="enabled" id="San Luis Potosi: Verde" stroke="#000000" stroke-opacity="0.5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#02A247" fill-opacity="0.75" fill-rule="evenodd" d="M270 217L270 223L277 225L276 223L281 227L286 227L290 230L289 233L287 233L289 235L287 237L287 242L281 241L281 237L277 239L274 237L273 239L268 236L264 238L257 234L254 235L257 226L255 223L251 227L250 224L246 222L245 216L251 214L258 209L257 206L263 202L266 210L266 218L268 216L269 217z"></path>
+            <path class="enabled" id="Sinaloa: Amarillo" stroke="#000000" stroke-opacity="0.5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#FFC60F" fill-opacity="0.75" fill-rule="evenodd" d="M192 187L190 188L190 194L195 199L197 204L202 204L205 209L203 209L204 213L205 212L207 218L210 219L208 223L209 226L207 225L206 227L193 210L183 202L174 191L164 187L164 183L166 178L170 178L170 175L172 175L177 169L180 173L179 174L182 180L185 180L191 186z"></path>
+            
+            <path class="enabled" id="Sonora: Amarillo" stroke="#000000" stroke-opacity="0.5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#FFC60F" fill-opacity="0.75" fill-rule="evenodd" d="M128 147L128 148zM131 141L132 146L130 147L128 145L129 142L131 141zM103 98L145 113L172 113L170 123L172 123L174 127L172 146L175 152L169 154L168 153L168 157L173 163L174 170L174 172L170 175L170 178L169 177L167 179L164 174L160 173L156 168L151 166L151 158L145 158L133 144L132 140L130 140L126 132L126 128L122 122L122 115L117 114L114 110L110 111L103 107L100 101L101 98z"></path>
+            
+            <path class="enabled" id="Tabasco: Naranja" stroke="#000000" stroke-opacity="0.5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#FF7000" fill-opacity="0.75" fill-rule="evenodd" d="M374 283L374 290L369 290L366 287L365 282L358 284L354 289L350 285L351 283L349 283L349 281L347 282L344 289L344 287L339 282L338 278L350 275L351 276L357 273L358 275L360 275L360 279L363 281L366 282L368 279L374 281z"></path>
+            
+            <path class="enabled" id="Tamaulipas: Amarillo" stroke="#000000" stroke-opacity="0.5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#FFC60F" fill-opacity="0.75" fill-rule="evenodd" d="M296 229L295 230L292 227L281 227L277 223L277 225L270 223L270 216L272 215L273 210L276 211L277 209L275 206L276 203L275 201L274 202L278 198L280 198L281 194L283 194L289 189L287 189L287 182L281 182L280 179L278 178L274 164L272 163L274 161L277 163L278 171L280 172L282 176L281 177L292 182L298 182L300 184L304 183L297 202L296 228z"></path>
+            
+            <path class="enabled" id="Tlaxcala: Verde" stroke="#000000" stroke-opacity="0.5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#02A247" fill-opacity="0.75" fill-rule="evenodd" d="M287 263L287 261L293 260L298 264L295 265L295 267L292 267L287 263z"></path>
+            
+            <path class="enabled" id="Veracruz: Amarillo" stroke="#000000" stroke-opacity="0.5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#FFC60F" fill-opacity="0.75" fill-rule="evenodd" d="M296 229L298 234L302 238L302 246L312 259L313 265L317 268L318 271L330 274L334 279L338 278L338 282L344 286L343 290L335 291L329 290L325 285L319 286L319 279L313 278L314 277L309 273L308 276L306 274L305 275L301 273L302 268L306 265L300 262L304 255L300 254L299 256L297 254L299 250L297 249L297 247L295 247L295 249L293 249L289 253L287 251L292 244L290 242L289 243L287 237L289 235L287 233L289 233L290 230L286 227L293 227L296 230z"></path>
+            
+            <path class="enabled" id="Yucatan: Naranja" stroke="#000000" stroke-opacity="0.5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#FF7000" fill-opacity="0.75" fill-rule="evenodd" d="M413 239L413 245L411 249L406 253L402 254L393 262L385 251L384 252L381 250L382 244L387 241L398 240L406 237L411 238zM388 225L390 226L389 227L388 225z"></path>
+            
+            <path class="enabled" id="Zacatecas: Verde" stroke="#000000" stroke-opacity="0.5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#02A247" fill-opacity="0.75" fill-rule="evenodd" d="M262 201L263 202L258 206L258 209L247 216L246 214L245 216L247 223L251 226L255 223L257 225L255 228L256 232L254 234L245 227L239 233L241 240L238 242L237 241L236 244L230 243L231 240L229 238L231 234L236 232L236 230L235 227L233 228L234 229L229 231L230 225L228 225L227 230L227 226L229 223L225 223L226 228L224 226L222 228L222 224L225 223L224 216L228 212L227 209L234 202L242 202L243 199L241 195L245 194L248 194L251 197L256 197L258 198L258 200L262 201z"></path>
+        </svg>
+    <div class="description"></div>
+    <script>
+        $description = $(".description");
+            $('.enabled').hover(function() {
+            
+            $(this).attr("class", "enabled heyo");
+            $description.addClass('active');
+            $description.addClass("naranja");
+            $description.html($(this).attr('id'))
+            }, function() {
+            $description.removeClass('active');
+            });
+
+            $(document).on('mousemove', function(e){
+
+            $description.css({
+            left:  e.pageX -210, 
+            top:   e.pageY - 130
+            });
+        });
+    </script>
+        <div class="semaforo">
+            <div class="box">
+                <div class="tarjeta color1">
+                    <img src="Img/Susana_Semaforo_Verde.png" alt="Semaforo Verde" class="img">
+                    <h1>Semaforo Verde</h1>
+                    <p>Se permiten todas las actividades, incluidas las escolares.</p>
+                </div>
+            </div>
+    
+            <div class="box">
+                <div class="tarjeta color2">
+                    <img src="Img/Susana_Semaforo_Amarillo.png" alt="Semaforo Amarillo" class="img">
+                    <h1>Semaforo Amarillo</h1>
+                    <p>Todas las actividades laborales están permitidas, cuidando a las personas con mayor riesgo de presentar un cuadro grave de COVID-19. El espacio público abierto se abre de forma regular, y los espacios públicos cerrados se pueden abrir con aforo reducido. Como en otros colores del semáforo, estas actividades deben realizarse con medidas básicas de prevención y máximo cuidado a las personas con mayor riesgo de presentar un cuadro grave de COVID-19.</p>
+                </div>
+            </div>
+    
+            <div class="box">
+                <div class="tarjeta color3">
+                    <img src="Img/Susana_Semaforo_Naranja.png" alt="Semaforo Naranja" class="img">
+                    <h1>Semaforo Naranja</h1>
+                    <p>Además de las actividades económicas esenciales, se permitirá que las empresas de las actividades económicas no esenciales trabajen con el 30% del personal para su funcionamiento, siempre tomando en cuenta las medidas de cuidado máximo para las personas con mayor riesgo de presentar un cuadro grave de COVID-19, se abrirán los espacios públicos abiertos con un aforo (cantidad de personas) reducido.</p>
+                </div>
+            </div>
+    
+            <div class="box">
+                <div class="tarjeta color4">
+                    <img src="Img/Susana_Semaforo_Rojo.png" alt="Semaforo Rojo" class="img">
+                    <h1>Semaforo Rojo</h1>
+                    <p>Se permitirán únicamente las actividades económicas esenciales, asimismo se permitirá también que las personas puedan salir a caminar alrededor de sus domicilios durante el día.</p>
+                </div>
+            </div> 
+        </div>                       
+    </div>
+    <script>
+		let btn = document.querySelector("#button");
+		let sidebar = document.querySelector(".sidebar");
+		let content = document.querySelector(".home_content");
+
+		btn.onclick = function(){
+			sidebar.classList.toggle("active");
+			content.classList.toggle("active");
+		}
+	</script>
+</body>
+</html>
