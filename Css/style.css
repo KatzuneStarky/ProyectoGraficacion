@@ -147,6 +147,20 @@ body{
     pointer-events: auto;
 }
 
+.tt{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: -200px;
+}
+
+.tt p{
+    font-size: 30px;
+    font-weight: 1000;
+}
+
 .home_content{
     position: relative;
     background: linear-gradient(135deg, #ffffff, #ffdcdc);
@@ -369,6 +383,7 @@ body{
     border-radius: 5px;
     height: 700px;
     width: 500px;
+    margin-top: 300px;
 }
 
 .box .tarjeta.color1:hover{
