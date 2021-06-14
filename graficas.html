@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="Img/viruses-solid.ico">
+
+        <title>Covid-19 - Graficas</title>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <link rel="stylesheet" href="Css/style.css">
+        <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+        <script src="libraries/p5.js"></script>
+        <link rel="stylesheet" href="Css/loader.css">
+    </head>
+    <body>
+        <section class="wrapper dark" id="wrapper">
+            <div class="spinner">
+              <i></i>
+              <i></i>
+              <i></i>
+              <i></i>
+              <i></i>
+              <i></i>
+              <i></i>
+            </div>
+            <p class="cargando">Cargando...</p>
+          </section>
+        <div class="sidebar">
+            <div class="logo_content">
+                <div class="logo">
+                    <i class='bx bxs-virus'></i>
+                    <div class="logoName">Covid-19</div>
+                </div>
+                <i class='bx bx-menu' id="button"></i>
+            </div>
+            <ul class="nav_list">
+                <li>
+                    <a href="index.html">
+                        <i class='bx bxs-dashboard' ></i>
+                        <span class="link_name">Dashboard</span>
+                    </a>
+                    <span class="tooltip">Dashboard</span>
+                </li>
+    
+                <li>
+                    <a href="semaforo.html">
+                        <i class='bx bxs-traffic'></i>
+                        <span class="link_name">Semaforo</span>
+                    </a>
+                    <span class="tooltip">Semaforo</span>
+                </li>
+    
+                <li>
+                    <a href="mapa.html">
+                        <i class='bx bxs-map'></i>
+                        <span class="link_name">Mapa</span>
+                    </a>
+                    <span class="tooltip">Mapa</span>
+                </li>
+    
+                <li>
+                    <a href="graficas.html">
+                        <i class='bx bx-bar-chart-alt-2' ></i>
+                        <span class="link_name">Grafica 1</span>
+                    </a>
+                    <span class="tooltip">Grafica 1</span>
+                </li>
+
+                <li>
+                    <a href="graficas1.html">
+                        <i class='bx bx-bar-chart-alt-2' ></i>
+                        <span class="link_name">Grafica 2</span>
+                    </a>
+                    <span class="tooltip">Grafica 2</span>
+                </li>
+            </ul>		
+        </div>
+        <div class="header">
+            <i class='bx bx-bar-chart-alt-2' ></i>
+            <p class="titulo">Grafica Infectados</p>
+        </div>
+
+        <div class="home_content" id="home_content">
+            <script src="sketch.js"></script>
+        </div>
+
+        <script>
+            let btn = document.querySelector("#button");
+            let sidebar = document.querySelector(".sidebar");
+            let content = document.querySelector(".home_content");
+    
+            btn.onclick = function(){
+                sidebar.classList.toggle("active");
+                content.classList.toggle("active");
+            }
+        </script>
+        <script>
+            setTimeout(function(){
+                $( document ).ready(function() {
+               var section = document.getElementById("wrapper");
+               section.style.opacity = "0";
+               section.style.zIndex = "-1000";
+            });
+        }, 2000);
+          </script>
+    </body>
+</html>

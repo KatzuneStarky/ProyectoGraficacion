@@ -13,6 +13,7 @@
 	<script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
 	<link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
 	<link rel="stylesheet" href="Css/loader.css">
+	<script src="js/all.js"></script>
 
 	<script>
 		$.getJSON('https://api.apify.com/v2/key-value-stores/vpfkeiYLXPIDIea2T/records/LATEST?disableRedirect=true', function (data){
@@ -80,11 +81,19 @@
 			</li>
 
 			<li>
-				<a href="">
+				<a href="graficas.html">
 					<i class='bx bx-bar-chart-alt-2' ></i>
-					<span class="link_name">Graficas</span>
+					<span class="link_name">Grafica 1</span>
 				</a>
-				<span class="tooltip">Graficas</span>
+				<span class="tooltip">Grafica 1</span>
+			</li>
+
+			<li>
+				<a href="graficas1.html">
+					<i class='bx bx-bar-chart-alt-2' ></i>
+					<span class="link_name">Grafica 2</span>
+				</a>
+				<span class="tooltip">Grafica 2</span>
 			</li>
 		</ul>		
 	</div>
@@ -157,7 +166,51 @@
 			<div id="circle" class="circle acti"></div>		
 			</div>
 		</div>
+		<div class="infoCovid">
+			<section class="cov">
+				<div class="contentNew">
+					<h2>Covid-19</h2>
+					<h3>¿Que es el Covid-19?</h3>
+					<p>COVID-19 es la enfermedad causada por el nuevo coronavirus conocido como SARS-CoV-2. 
+						La OMS tuvo noticia por primera vez de la existencia de este nuevo virus el 31 de diciembre de 2019, 
+						al ser informada de un grupo de casos 
+						de «neumonía vírica» que se habían declarado en Wuhan (República Popular China).</p>
+				</div>
+			</section>
 		</div>
+
+		<div class="infoCovid" >
+			<section class="cov">
+				<div class="contentNew">
+					<h2><i class="fas fa-exclamation-triangle"></i> ¿Cuando debo acudir por atencion medica? <i class="fas fa-exclamation-triangle"></i></h2>
+					<h3>Estos son los sintomas que se pueden presentar</h3>
+					<p><i class="fas fa-thermometer-three-quarters"></i> Fiebre</p>
+					<p><i class="fas fa-head-side-cough"></i> Tos Seca</p>
+					<p><i class="far fa-frown"></i> Cansancio</p>
+					<h3>Otros síntomas menos comunes son los siguientes:</h3>
+					<p><i class="fas fa-head-side-cough"></i> Dolor de garganta</p>	
+					<p><i class="fas fa-user-injured"></i> Molestias y dolores</p>	
+					<p><i class="fas fa-head-side-virus"></i> Dolor de cabeza</p>
+					<h3>Los síntomas graves son los siguientes:</h3>
+					<p><i class="fas fa-lungs"></i> Dificultad para respirar o sensación de falta de aire</p>	
+					<p><i class="fas fa-user-injured"></i> Dolor o presión en el pecho</p>	
+					<p><i class="fas fa-bed"></i> Incapacidad para hablar o moverse</p>	
+				</div>
+			</section>
+		</div>
+
+		<div class="infoCovid">
+			<section class="cov">
+				<div class="contentNew">
+					<h2><i class="fas fa-exclamation"></i>¿Como evito contagiarme?<i class="fas fa-exclamation"></i></h2>
+					<h3>Medidas para prevenir el coronavirus</h3>
+					<p><i class="fas fa-map-marker"></i>Evitar el contacto cercano con personas enfermas</p>
+					<p><i class="fas fa-map-marker"></i>Evitar tocarse los ojos, la nariz y la boca</p>
+					<p><i class="fas fa-head-side-mask"></i>Cubrirse la nariz y la boca con un pañuelo desechable al toser o estornudar y luego botarlo a la basura.</p>
+				</div>
+			</section>
+		</div>
+	</div>
 	</div>
 	<script>
 		let btn = document.querySelector("#button");
@@ -177,6 +230,12 @@
 		   section.style.zIndex = "-1000";
         });
     }, 2000);
+	  </script>
+	  <script src="js/scroll-out.js"></script>
+	  <script>
+		  ScrollOut({
+			targets: 'h2, h3, p'
+		  });
 	  </script>
 </body>
 </html>
